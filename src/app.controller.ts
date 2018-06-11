@@ -12,7 +12,7 @@ export class AppController {
 
   @Get()
   root(): string {
-    return 'HELLO WORLD';
+    return 'EMPTY ROOT PAGE'; // TODO: remove later
   }
   /**
    * Registers the given user. Returns a valid JwtToken
