@@ -1,12 +1,44 @@
-import { Get, Controller } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Get, Controller, Post, Body, Headers } from '@nestjs/common';
+import { AuthService } from 'auth/auth.service';
+import { UserService } from 'user/user.service';
+import { User } from 'user/user';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly authService: AuthService,
+  ) {}
 
   @Get()
   root(): string {
-    return this.appService.root();
+    return 'HELLO WORLD';
+  }
+  /**
+   * Registers the given user. Returns a valid JwtToken
+   * @param user the user trying to register
+   * @param headers the passed headers, we will check if the user
+   * is already logged in
+   */
+  @Post('register')
+  async register(@Body() user: User, @Headers() headers: string) {
+    const registerdUser = await this.userService.create(
+      user.email,
+      user.name,
+      user.password,
+    );
+    const token = await this.authService.createToken(registerdUser);
+    return token;
+  }
+  /**
+   * Logins the gien user, returns a valid JwtToken if valid
+   * @param user the user trying to login
+   * @param headers the passed headers, we will check if the user
+   * is already logged in
+   */
+  @Post('login')
+  async login(@Body() user: User, @Headers() headers: string) {
+    const token = await this.userService.login(user);
+    return token;
   }
 }
