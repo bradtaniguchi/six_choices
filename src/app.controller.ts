@@ -1,6 +1,7 @@
 import { Get, Controller, Post, Body, Headers } from '@nestjs/common';
 import { AuthService } from 'auth/auth.service';
 import { UserService } from 'user/user.service';
+import { LoggerService } from 'logger/logger.service';
 import { User } from 'user/user';
 
 @Controller()
@@ -8,11 +9,13 @@ export class AppController {
   constructor(
     private readonly userService: UserService,
     private readonly authService: AuthService,
+    private readonly loggerService: LoggerService,
   ) {}
 
-  @Get()
+  @Get('test')
   root(): string {
-    return 'EMPTY ROOT PAGE'; // TODO: remove later
+    this.loggerService.log('hello world!');
+    return 'EMPTY ROOT PAGE, check logs'; // TODO: remove later
   }
   /**
    * Registers the given user. Returns a valid JwtToken
