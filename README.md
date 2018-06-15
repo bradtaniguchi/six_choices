@@ -2,7 +2,7 @@
 
 ## Description
 
-tiger-wine project
+six_choices project
 
 ## Installation
 
@@ -35,4 +35,3 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
