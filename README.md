@@ -1,4 +1,4 @@
-# tiger-core
+# six_choices
 
 ## Description
 
