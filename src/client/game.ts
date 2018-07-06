@@ -6,14 +6,14 @@ export class MyGame extends Game {
   private sceneManager: Phaser.Scenes.SceneManager;
   constructor() {
     const docElement = document.documentElement;
-    const width =
-      docElement.clientWidth > config.gameWidth
-        ? config.gameWidth
-        : docElement.clientWidth;
-    const height =
-      docElement.clientHeight > config.gameHeight
-        ? config.gameHeight
-        : docElement.clientHeight;
+    const width = config.gameWidth;
+    // docElement.clientWidth > config.gameWidth
+    //   ? config.gameWidth
+    //   : docElement.clientWidth;
+    const height = config.gameHeight;
+    // docElement.clientHeight > config.gameHeight
+    //   ? config.gameHeight
+    //   : docElement.clientHeight;
     super({
       width,
       height,
@@ -24,5 +24,6 @@ export class MyGame extends Game {
     this.sceneManager = this.scene;
     const bootScene = new BootScene();
     this.sceneManager.add('Boot', bootScene, true);
+    console.log('test', docElement);
   }
 }
