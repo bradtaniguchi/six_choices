@@ -21,6 +21,9 @@ $ npm run start:dev
 
 # production mode
 npm run start:prod
+
+# also run front-end
+npm run start:front-end
 ```
 
 ## Test
