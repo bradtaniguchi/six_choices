@@ -13,17 +13,17 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
+# development with watch mode
 $ npm run start:dev
 
-# production mode
-npm run start:prod
+# development just frontend
+$ npm run start:frontend
 
-# also run front-end
-npm run start:front-end
+# development just backend
+$ npm run start:backend
+
+# production mode
+npm run start
 ```
 
 ## Test
