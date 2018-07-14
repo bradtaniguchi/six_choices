@@ -11,7 +11,7 @@ export class HttpStrategy extends PassportStrategy(Strategy) {
 
   async validate(token: any, done: (...args) => any) {
     console.log('sanity test in validate');
-    const user = await this.authService.validateUser(token);
+    const user = await this.authService.validateToken(token);
     if (!user) {
       return done(new UnauthorizedException(), false);
     }

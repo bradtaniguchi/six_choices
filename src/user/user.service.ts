@@ -7,7 +7,7 @@ import {
 import { User } from './user';
 import { shallowCompare } from 'utils/shallow-compare';
 import { ClientUser } from './client-user';
-import { AuthService } from 'auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { JwtToken } from 'auth/jwt-token';
 import * as bcrypt from 'bcrypt';
 
